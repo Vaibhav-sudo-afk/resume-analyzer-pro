@@ -2,7 +2,7 @@
 
 A premium, interactive front-end application designed to simulate an AI-powered resume analysis process. Built with state-of-the-art web design principles, this project showcases deep expertise in Vanilla JavaScript, modern CSS architecture, and highly engaging user experiences.
 
-![Resume Analyzer Pro Showcase](https://via.placeholder.com/1200x600.png?text=AI+Resume+Analyzer+Pro+-+Premium+Dark+Mode+UI)
+![Resume Analyzer Pro Showcase](https://placehold.co/1200x600/0f111a/10b981.png?text=AI+Resume+Analyzer+Pro)
 
 ## ✨ Features
 
