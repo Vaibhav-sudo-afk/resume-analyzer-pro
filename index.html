@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Analyzer Pro</title>
+  <meta name="description" content="Get instant AI-powered feedback on your resume. Optimize your skills and stand out to top recruiters.">
+  
+  <!-- Fonts: Outfit for a modern, tech-forward look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient background elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <main class="container">
+    <header class="hero">
+      <h1>Elevate Your <span class="gradient-text">Resume</span></h1>
+      <p>Drop your resume below and get instant, actionable insights to land your next dream role.</p>
+    </header>
+
+    <section id="upload-section" class="card glass-panel">
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" hidden>
+        <div class="upload-icon">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+        </div>
+        <h3 id="upload-title">Drag & Drop your resume</h3>
+        <p id="upload-desc">or click to browse from your device</p>
+        <span class="file-types">Supports PDF, DOCX, TXT</span>
+      </div>
+      
+      <div class="action-bar hidden" id="action-bar">
+        <div class="file-info">
+          <i class="fa-solid fa-file-lines file-icon"></i>
+          <span id="selected-filename">resume.pdf</span>
+          <button id="remove-file" class="icon-btn" title="Remove file"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <button class="primary-btn" id="analyze-btn">
+          Analyze Resume <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section id="loading-section" class="hidden">
+      <div class="loader-container">
+        <div class="hexagon-loader">
+          <div class="hex"></div>
+          <div class="hex"></div>
+          <div class="hex"></div>
+          <div class="hex"></div>
+          <div class="hex"></div>
+          <div class="hex"></div>
+          <div class="hex"></div>
+        </div>
+        <h2 id="loading-text" class="pulsating-text">Extracting resume data...</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" id="loading-progress"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Dashboard -->
+    <section id="results-section" class="hidden fade-in-up">
+      <div class="dashboard-header">
+        <h2>Analysis Complete</h2>
+        <button class="secondary-btn" id="reset-btn"><i class="fa-solid fa-rotate-right"></i> Scan Another</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Score Card -->
+        <div class="card glass-panel score-card">
+          <h3>ATS Compatibility Score</h3>
+          <div class="radial-progress" id="score-radial">
+            <svg viewBox="0 0 100 100">
+              <circle class="bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter" cx="50" cy="50" r="45" stroke-dashoffset="283"></circle>
+            </svg>
+            <div class="score-value">
+              <span id="final-score">0</span><span class="percent">%</span>
+            </div>
+          </div>
+          <p class="score-label" id="score-message">Excellent! Your resume is highly optimized.</p>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="card glass-panel skills-card">
+          <h3><i class="fa-solid fa-code"></i> Detected Skills</h3>
+          <div class="skills-container" id="skills-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Suggestions Card -->
+        <div class="card glass-panel suggestions-card">
+          <h3><i class="fa-solid fa-lightbulb"></i> Key Strengths</h3>
+          <ul class="suggestions-list strengths-list" id="suggestions-list">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+
+        <!-- Improvements Card -->
+        <div class="card glass-panel improvements-card">
+          <h3><i class="fa-solid fa-triangle-exclamation"></i> Areas to Improve</h3>
+          <ul class="suggestions-list improvements-list" id="improvements-list">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
